@@ -33,9 +33,6 @@ bot.hears("Ro'yhatdan o'tish", async (ctx) => {
   ctx.reply("Tanlang", Markup.keyboard([["Usta", "Mijoz"]]).resize());
 });
 
-bot.help((ctx) => ctx.reply("Send me a sticker"));
-bot.on("sticker", (ctx) => ctx.reply("👍"));
-bot.hears("hi", (ctx) => ctx.reply("Hey there"));
 bot.launch();
 
 // Enable graceful stop
