@@ -118,14 +118,14 @@ bot.hears("Ism", (ctx) => {
 });
 
 //obshiy handle steplarni registerni
-// bot.on("message", async (ctx) =>
-//   userSteps(ctx, Markup, pool, userState, masterState)
-// );
+bot.on("message", async (ctx) =>
+  userSteps(ctx, Markup, pool, userState, masterState)
+);
 
-bot.on("message", (ctx) => {
-  ctx.reply("ctx bu");
-  console.log(ctx.update.message.reply_to_message);
-});
+// bot.on("message", (ctx) => {
+//   ctx.reply("ctx bu");
+//   console.log(ctx.update.message.reply_to_message);
+// });
 
 bot.launch();
 
