@@ -88,23 +88,6 @@ bot.action(/reject_[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}/i, async (ctx) => {
   }
 });
 
-async function searchUsers(searchTerm, page) {
-  const pageSize = 10;
-  const offset = (page - 1) * pageSize;
-  const query = `
-      SELECT *
-      FROM masters
-      WHERE name ILIKE '%${searchTerm}%'
-      LIMIT ${pageSize}
-      OFFSET ${offset}
-    `;
-  const result = await pool.query(query);
-  const users = result.rows;
-  const hasNext = users.length === pageSize;
-  const hasPrev = page > 1;
-  return { users, hasNext, hasPrev };
-}
-
 bot.hears("Ustalar", (ctx) => {
   if (ctx.state.isAdmin) {
     ctx.reply("Ustalar", Markup.keyboard([["Ism", "Telefon raqami"]]).resize());
